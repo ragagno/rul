@@ -1,3 +1,5 @@
+use crate::bits::BITS_PER_BYTE_U32 as BITS_PER_BYTE;
+
 macro_rules! define_bits {
     ({$name:ident, $iota:literal}) => { pub const $name: u32 = 1u32 << $iota; };
 
@@ -17,19 +19,19 @@ macro_rules! define_bits_msd {
 }
 
 macro_rules! define_bytes {
-    ({$name:ident, $iota:literal}) => { pub const $name: u32 = 0xFFu32 << 8u32 * $iota; };
+    ({$name:ident, $iota:literal}) => { pub const $name: u32 = 0xFFu32 << BITS_PER_BYTE * $iota; };
 
     ($({$names:ident, $iotas:literal}),+) => { $(define_bytes!({$names, $iotas});)+ };
 }
 
 macro_rules! define_bytes_lsd {
-    ({$name:ident, $iota:literal}) => { pub const $name: u32 = !0u32 >> 8u32 * $iota; };
+    ({$name:ident, $iota:literal}) => { pub const $name: u32 = !0u32 >> BITS_PER_BYTE * $iota; };
 
     ($({$names:ident, $iotas:literal}),+) => { $(define_bytes_lsd!({$names, $iotas});)+ };
 }
 
 macro_rules! define_bytes_msd {
-    ({$name:ident, $iota:literal}) => { pub const $name: u32 = !0u32 << 8u32 * $iota; };
+    ({$name:ident, $iota:literal}) => { pub const $name: u32 = !0u32 << BITS_PER_BYTE * $iota; };
 
     ($({$names:ident, $iotas:literal}),+) => { $(define_bytes_msd!({$names, $iotas});)+ };
 }
