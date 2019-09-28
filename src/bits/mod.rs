@@ -1,4 +1,5 @@
 pub mod masks;
+pub mod endian;
 
 const BITS_PER_BYTE: usize = 8usize;
 
