@@ -1,5 +1,7 @@
 pub mod masks;
 
+const BITS_PER_BYTE: usize = 8usize;
+
 pub union UPun8 {
     u8: * u8,
 }
