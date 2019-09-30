@@ -1,3 +1,9 @@
-implement_const!(Const, {from_u8, get_u8, u8}, {from_u16, get_u16, u16});
+pub union Const {
+    pub u8: *const u8,
+    pub u16: *const u16,
+}
 
-implement_mut!(Mut, {from_u8, get_u8, set_u8, u8}, {from_u16, get_u16, set_u16, u16});
+pub union Mut {
+    pub u8: *mut u8,
+    pub u16: *mut u16,
+}
