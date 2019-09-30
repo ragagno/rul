@@ -1,3 +1,6 @@
+#[macro_use]
+mod macros;
+
 pub mod u8;
 pub mod u16;
 pub mod u32;
