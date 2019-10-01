@@ -1,4 +1,4 @@
-#[derive(Copy)]
+#[derive(Copy, Clone)]
 pub enum Enum {
     Ipv4(u32),
     Ipv6(u128),
